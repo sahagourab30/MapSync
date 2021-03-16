@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestData>
+    <Registration>
+        <FName>Tester</FName>
+        <LName>Maps</LName>
+        <Country>India</Country>
+        <Address>1, Brabourne Rd., Kolkata - 700001</Address>
+        <Contact>9876543210</Contact>
+        <Gender>Female</Gender>
+        <DOB>25-12-2000</DOB>
+        <Email>testerMaps25@gmail.com</Email>
+        <Pwd>tester123</Pwd>
+        <Newsletter>No</Newsletter>
+    </Registration>
+
+
+    <Credentials>
+       <EmailId>testerMaps25@gmail.com</EmailId>
+       <Password>tester123</Password>
+	</Credentials>
+</TestData>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="MapSync Application Test" parallel="tests" thread-count="1" verbose="6" configfailurepolicy="continue">
+
+	<test name="HomeTest" parallel="methods" thread-count="1">
+		<groups>
+			<run>
+				<include name = "Homepage"/>
+			</run>
+		</groups>
+		<packages> 
+				<package name="com.mapsync.tests"/>
+		</packages>
+	</test>
+</suite>
