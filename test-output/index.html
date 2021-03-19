@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button class="button" id="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -40,7 +40,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-MapSync_Application_Test">
-              <span class="suite-name border-passed">MapSync Application Test</span>
+              <span class="suite-name border-failed">MapSync Application Test</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -56,12 +56,12 @@
                 </li>
                 <li>
                   <a href="#" class="navigator-link " panel-name="testlist-MapSync_Application_Test">
-                    <span class="test-stats">1 test</span>
+                    <span class="test-stats">2 tests</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
                   <a href="#" class="navigator-link " panel-name="group-MapSync_Application_Test">
-                    <span>1 group</span>
+                    <span>2 groups</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -93,7 +93,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-MapSync_Application_Test" class="hide-methods failed suite-MapSync_Application_Test"> (hide)</a> <!-- hide-methods failed suite-MapSync_Application_Test -->
+                      <a href="#" panel-name="suite-MapSync_Application_Test" class="show-methods failed suite-MapSync_Application_Test"> (show)</a> <!-- show-methods failed suite-MapSync_Application_Test -->
+                    </span>
+                    <div class="method-list-content failed suite-MapSync_Application_Test">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-MapSync_Application_Test" title="com.mapsync.tests.HomePageTest" hash-for-method="verifyAllLink">verifyAllLink</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-MapSync_Application_Test -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -119,6 +133,46 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-MapSync_Application_Test" class="panel MapSync_Application_Test">
+          <div class="suite-MapSync_Application_Test-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.mapsync.tests.HomePageTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyAllLink">
+                  </a> <!-- verifyAllLink -->
+                  <span class="method-name">verifyAllLink</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at org.testng.Assert.assertTrue(Assert.java:55)
+	at com.mapsync.utilities.PageUtils.hardAssertion(PageUtils.java:114)
+	at com.mapsync.pages.RegistrationPage.verifyRegistrationPageDisplayed(RegistrationPage.java:73)
+	at com.mapsync.tests.HomePageTest.verifyAllLink(HomePageTest.java:61)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:132)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:599)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:174)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:822)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:147)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-MapSync_Application_Test-class-failed -->
           <div class="suite-MapSync_Application_Test-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -143,7 +197,7 @@
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite thread-count=&quot;1&quot; configfailurepolicy=&quot;continue&quot; guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;6&quot; name=&quot;MapSync Application Test&quot; parallel=&quot;tests&quot;&gt;
+&lt;suite thread-count=&quot;2&quot; configfailurepolicy=&quot;continue&quot; guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;6&quot; name=&quot;MapSync Application Test&quot; parallel=&quot;tests&quot;&gt;
   &lt;test thread-count=&quot;1&quot; verbose=&quot;6&quot; name=&quot;HomeTest&quot; parallel=&quot;methods&quot;&gt;
     &lt;groups&gt;
       &lt;run&gt;
@@ -154,9 +208,24 @@
       &lt;package name=&quot;com.mapsync.tests&quot;/&gt;
     &lt;/packages&gt;
     &lt;classes&gt;
+      &lt;class name=&quot;com.mapsync.tests.SignInPageTest&quot;/&gt;
       &lt;class name=&quot;com.mapsync.tests.HomePageTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- HomeTest --&gt;
+  &lt;test thread-count=&quot;1&quot; verbose=&quot;6&quot; name=&quot;HomeTestParallel&quot; parallel=&quot;methods&quot;&gt;
+    &lt;groups&gt;
+      &lt;run&gt;
+        &lt;include name=&quot;Homepage1&quot;/&gt;
+      &lt;/run&gt;
+    &lt;/groups&gt;
+    &lt;packages&gt;
+      &lt;package name=&quot;com.mapsync.tests&quot;/&gt;
+    &lt;/packages&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.mapsync.tests.SignInPageTest&quot;/&gt;
+      &lt;class name=&quot;com.mapsync.tests.HomePageTest&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- HomeTestParallel --&gt;
 &lt;/suite&gt; &lt;!-- MapSync Application Test --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -168,7 +237,10 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">HomeTest (1 class)</span>
+                <span class="test-name">HomeTest (2 classes)</span>
+              </li>
+              <li>
+                <span class="test-name">HomeTestParallel (2 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -180,6 +252,14 @@
           <div class="main-panel-content rounded-window-bottom">
             <div class="test-group">
               <span class="test-group-name">Homepage</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">verifyAllLink</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">Homepage1</span>
               <br/>
               <div class="method-in-group">
                 <span class="method-in-group-name">registerLinkTest</span>
@@ -202,16 +282,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'registerLinkTest')
+data.setCell(0, 1, 'verifyAllLink')
 data.setCell(0, 2, 'com.mapsync.tests.HomePageTest')
-data.setCell(0, 3, 6224);
+data.setCell(0, 3, 36598);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'registerLinkTest')
+data.setCell(1, 2, 'com.mapsync.tests.HomePageTest')
+data.setCell(1, 3, 7068);
 window.suiteTableData['MapSync_Application_Test']= { tableData: data, tableDiv: 'times-div-MapSync_Application_Test'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 10 seconds</span>
+              <span class="suite-total-time">Total running time: 40 seconds</span>
               <div id="times-div-MapSync_Application_Test">
               </div> <!-- times-div-MapSync_Application_Test -->
             </div> <!-- times-div -->
@@ -226,9 +310,27 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-MapSync_Application_Test" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">4 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.mapsync.tests.HomePageTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">registerLinkTest</span>
+                <br/>
+                <span class="ignored-method-name">verifyAllLink</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.mapsync.tests.SignInPageTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">loginTest</span>
+                <br/>
+                <span class="ignored-method-name">loginTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-MapSync_Application_Test" class="panel">
@@ -239,20 +341,38 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">com.mapsync.tests.HomePageTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
-                <span class="method-name">initialize(public void com.mapsync.tests.HomePageTest.registerLinkTest())</span>
+                <span class="method-name">setUp(public void com.mapsync.tests.HomePageTest.verifyAllLink())</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp(public void com.mapsync.tests.HomePageTest.registerLinkTest())</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">verifyAllLink</span>
+                <span class="method-start">3772 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
                 <span class="method-name">registerLinkTest</span>
-                <span class="method-start">4013 ms</span>
+                <span class="method-start">4582 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">10239 ms</span>
+                <span class="method-start">11652 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">getResult([TestResult name=registerLinkTest status=SUCCESS method=HomePageTest.registerLinkTest()[pri:0, insta...)</span>
-                <span class="method-start">10342 ms</span>
+                <span class="method-start">11802 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">40373 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">getResult([TestResult name=verifyAllLink status=FAILURE method=HomePageTest.verifyAllLink()[pri:0, instance:co...)</span>
+                <span class="method-start">40462 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

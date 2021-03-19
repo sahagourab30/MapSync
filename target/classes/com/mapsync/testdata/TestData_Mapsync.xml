@@ -12,10 +12,41 @@
         <Pwd>tester123</Pwd>
         <Newsletter>No</Newsletter>
     </Registration>
+    
+    <URL>
+    	<MobileApp>http://account.mapsynq.com/mobile.html</MobileApp>
+    	<Galactio>http://www.galactio.com/main/index.php</Galactio>
+    	<SGGPS>https://play.google.com/store/apps/details?id=com.galactio.mobile.sg&amp;hl=en</SGGPS>
+    </URL>
 
 
     <Credentials>
        <EmailId>testerMaps25@gmail.com</EmailId>
        <Password>tester123</Password>
 	</Credentials>
+	
+	<iPhoneWeb>
+       <platformName>iOS</platformName>
+       <platformVersion>13.1.2</platformVersion>
+       <automationName>XCUITest</automationName>
+       <deviceName>iPhone</deviceName>
+       <UDID>00008030-001430282E21802E</UDID>
+       <xcodeOrgId>WW62Y2D7R6</xcodeOrgId>
+       <xcodeSigningId>iPhone Developer</xcodeSigningId>
+       <bundleId>com.apple.mobilesafari</bundleId>
+       <newCommandTimeout>60</newCommandTimeout>
+    </iPhoneWeb>
+    
+    <GalaxyS20Web>
+        <platformName>ANDROID</platformName>
+        <deviceName>Samsung S20</deviceName>
+        <UDID>RZ8NA1JJZ3E</UDID>
+        <platformVersion>11</platformVersion>
+        <automationName>Appium</automationName>
+        <appPackage>com.android.chrome</appPackage>
+        <appActivity>com.google.android.apps.chrome.Main</appActivity>
+        <newCommandTimeout>300</newCommandTimeout>
+        <noReset>true</noReset>
+    </GalaxyS20Web>
+    
 </TestData>
