@@ -1,9 +1,9 @@
 package com.mapsync.utilities;
 
 import java.io.File;
+import java.util.ArrayList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -25,7 +25,7 @@ public class PageUtils extends BaseTest {
 	public static boolean selectDropDown(WebElement webElement, String text) {
 		boolean status = false;
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, 5);
+			WebDriverWait wait = new WebDriverWait(getWebDriver(), 5);
 			wait.until(ExpectedConditions.elementToBeClickable(webElement));
 			Select select = new Select(webElement);
 			select.selectByVisibleText(text);
@@ -40,7 +40,7 @@ public class PageUtils extends BaseTest {
 	public static boolean waitForVisible(WebElement webElement, int timeOut) {
 		boolean status = false;
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, timeOut);
+			WebDriverWait wait = new WebDriverWait(getWebDriver(), timeOut);
 			wait.until(ExpectedConditions.visibilityOf(webElement));
 			status = webElement.isDisplayed();
 		} catch (Exception e) {
@@ -53,7 +53,21 @@ public class PageUtils extends BaseTest {
 	public static boolean click(WebElement webElement) {
 		boolean status = false;
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, 10);
+			WebDriverWait wait = new WebDriverWait(getWebDriver(), 10);
+			wait.until(ExpectedConditions.elementToBeClickable(webElement));
+			webElement.click();
+			status = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return status;
+		}
+		return status;
+	}
+	
+	public static boolean clickMobile(WebElement webElement) {
+		boolean status = false;
+		try {
+			WebDriverWait wait = new WebDriverWait(getMobileWebDriver(), 10);
 			wait.until(ExpectedConditions.elementToBeClickable(webElement));
 			webElement.click();
 			status = true;
@@ -67,7 +81,21 @@ public class PageUtils extends BaseTest {
 	public static boolean sendKeys(WebElement webElement, String text) {
 		boolean status = false;
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, 10);
+			WebDriverWait wait = new WebDriverWait(getWebDriver(), 10);
+			wait.until(ExpectedConditions.elementToBeClickable(webElement));
+			webElement.clear();
+			webElement.sendKeys(text);
+			status = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return status;
+	}
+	
+	public static boolean sendKeysMobile(WebElement webElement, String text) {
+		boolean status = false;
+		try {
+			WebDriverWait wait = new WebDriverWait(getMobileWebDriver(), 10);
 			wait.until(ExpectedConditions.elementToBeClickable(webElement));
 			webElement.clear();
 			webElement.sendKeys(text);
@@ -80,9 +108,9 @@ public class PageUtils extends BaseTest {
 
 	public static void hardAssertion(boolean status, String message) {
 		if (status) {
-			ExtentReporter.reportStep(driver, message, "Pass", 1);
+			ExtentReporter.reportStep(getWebDriver(), message, "Pass", 1);
 		} else {
-			ExtentReporter.reportStep(driver, message, "Fail", 1);
+			ExtentReporter.reportStep(getWebDriver(), message, "Fail", 1);
 			Assert.assertTrue(status);
 		}
 	}
@@ -100,7 +128,7 @@ public class PageUtils extends BaseTest {
 	
 	public static void pressKeys(String keys) {
 		try {
-			Actions act = new Actions(driver);
+			Actions act = new Actions(getWebDriver());
 			if(keys.equalsIgnoreCase("tab"))
 		    act.sendKeys(Keys.TAB).build().perform();
 			else if (keys.equalsIgnoreCase("enter"))
@@ -143,4 +171,39 @@ public class PageUtils extends BaseTest {
         filePath = System.getProperty("user.dir") + "//src//main//java//com//mapsync//testdata//TestData_mapsync.xml";
         return readXMLValues(filePath, rootName, tagName);
     }
+	
+	public static void navigateBack(String message) {
+        getWebDriver().navigate().back();
+        ExtentReporter.reportStep(getWebDriver(), message, "Pass", 0);
+    }
+
+	public static String getCurrentURL() {
+		String url="";
+		try {
+			url = getWebDriver().getCurrentUrl();
+			return url;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public static void switchToWindow(int index) {
+		try {
+			ArrayList<String> tabs = new ArrayList<String>(getWebDriver().getWindowHandles());
+			getWebDriver().switchTo().window(tabs.get(index));
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void switchToWindowAndClose(int index) {
+		try {
+			ArrayList<String> tabs = new ArrayList<String>(getWebDriver().getWindowHandles());
+			getWebDriver().switchTo().window(tabs.get(index));
+			getWebDriver().close();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

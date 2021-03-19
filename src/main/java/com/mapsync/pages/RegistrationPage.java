@@ -72,8 +72,8 @@ public class RegistrationPage extends BaseTest {
 			PageUtils.waitForVisible(signUpHeader, 10);
 			PageUtils.hardAssertion(PageUtils.isPresent(signUpHeader, 5), "Verify Registration page is displayed");
 		} catch (Exception e) {
-			ExtentReporter.reportStep(driver, "Registration page is not displayed failed", "Fail", 1);
-			ExtentReporter.reportStep(driver, e.getMessage(), "Fail", 0);
+			ExtentReporter.reportStep(getWebDriver(), "Registration page is not displayed failed", "Fail", 1);
+			ExtentReporter.reportStep(getWebDriver(), e.getMessage(), "Fail", 0);
 		}
 	}
 	
@@ -96,12 +96,12 @@ public class RegistrationPage extends BaseTest {
 				if(regData[9].equalsIgnoreCase("Yes"))
 					PageUtils.click(newsletter);
 				PageUtils.click(termsAndConditions);
-				ExtentReporter.reportStep(driver, "All user data updated", "Info", 1);
+				ExtentReporter.reportStep(getWebDriver(), "All user data updated", "Info", 1);
 			}
 			
 		}catch (Exception e) {
-			ExtentReporter.reportStep(driver, "Unable to update new user data", "Fail", 1);
-            ExtentReporter.reportStep(driver, e.getMessage(), "Fail", 0);
+			ExtentReporter.reportStep(getWebDriver(), "Unable to update new user data", "Fail", 1);
+            ExtentReporter.reportStep(getWebDriver(), e.getMessage(), "Fail", 0);
 		}
 	}
 		
@@ -109,20 +109,20 @@ public class RegistrationPage extends BaseTest {
 			try {
 				PageUtils.waitForVisible(createProfileButton, 5);
 				PageUtils.hardAssertion(PageUtils.click(createProfileButton), "Verify Clicking on Create Profile button");
-				ExtentReporter.reportStep(driver, "Clicking on Create Profile button passed", "Pass", 0);
+				ExtentReporter.reportStep(getWebDriver(), "Clicking on Create Profile button passed", "Pass", 0);
 			}catch(Exception e) {
-				ExtentReporter.reportStep(driver, "Cliking on Create Profile failed", "Fail", 1);
-	            ExtentReporter.reportStep(driver, e.getMessage(), "Fail", 0);
+				ExtentReporter.reportStep(getWebDriver(), "Cliking on Create Profile failed", "Fail", 1);
+	            ExtentReporter.reportStep(getWebDriver(), e.getMessage(), "Fail", 0);
 			}
 	}
 		public void verifySignUpError() {
 			try {
 				PageUtils.waitForVisible(errorSignUp, 10);
 				PageUtils.hardAssertion(PageUtils.isPresent(errorSignUp, 5), "Verify error on sign up");
-				ExtentReporter.reportStep(driver, "Verification of error on sign up Passed", "Pass", 0);
+				ExtentReporter.reportStep(getWebDriver(), "Verification of error on sign up Passed", "Pass", 0);
 			}catch(Exception e) {
-				ExtentReporter.reportStep(driver, "Verification of error on sign up failed", "Fail", 1);
-	            ExtentReporter.reportStep(driver, e.getMessage(), "Fail", 0);
+				ExtentReporter.reportStep(getWebDriver(), "Verification of error on sign up failed", "Fail", 1);
+	            ExtentReporter.reportStep(getWebDriver(), e.getMessage(), "Fail", 0);
 			}
 		}
 		
